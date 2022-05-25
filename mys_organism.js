@@ -30,9 +30,17 @@ const compareDna = (arr1, arr2) => {
         }
     }
     let percentSimilarity = sameBase*100/15
-    console.log(`specimen #1 and specimen #2 have ${percentSimilarity}% DNA in common)
+    console.log(`specimen #1 and specimen #2 have ${percentSimilarity}% DNA in common`)
 } 
-
-
+const willLikelySurvive = (arr) => {
+    let totalGCContent = 0
+    for (let i=0; i< arr.length; i++) {
+        if (arr[i]=== 'G' || arr[i]=== 'C') {
+            totalGCContent= totalGCContent + 1
+        }
+    }
+    return totalGCContent*100/15 > 60 
+}
 const dna = [ 'A', 'T', 'G', 'T', 'T', 'C', 'T', 'A', 'A', 'C', 'A', 'C', 'G', 'T', 'A' ]
-console.log(mutate(dna))
+const dnaTwo = [ 'G', 'T', 'C', 'G', 'G', 'G', 'C', 'C', 'G', 'T', 'A', 'C', 'G', 'C', 'A' ]
+console.log(willLikelySurvive(dna))
