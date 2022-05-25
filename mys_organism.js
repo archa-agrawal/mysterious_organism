@@ -9,16 +9,17 @@ const returnRandBase = () => {
     return dnaBases[Math.floor(Math.random() * 4)] 
 }
 
-const mutation = (arr) => {
+const mutate = (arr) => {
     let randomIndex = Math.floor(Math.random() * arr.length)
     let randomBase = arr[randomIndex]
-
-    while (randomBase != arr[randomIndex]) {
-        let newBase = returnRandBase()
-        arr[randomIndex] = newBase
+    let newBase= returnRandBase();
+      
+    while (newBase === randomBase) {
+        newBase= returnRandBase()
         console.log(newBase)
     }
+    arr[randomIndex] = newBase
     return arr
 }
 const dna = [ 'A', 'T', 'G', 'T', 'T', 'C', 'T', 'A', 'A', 'C', 'A', 'C', 'G', 'T', 'A' ]
-console.log(mutation(dna))
+console.log(mutate(dna))
